@@ -1,6 +1,7 @@
 # eth-Avaxmodule1
 For this project we have to make a smart contract that implements the following functions:
 require(), assert(), revert().
+ 
  1.Require: The require statement is used to validate certain conditions before proceeding with the execution of a function. If the condition evaluates to false, the 
  execution is immediately halted, and any changes made to the state are reverted. It is typically used for input validation and to ensure specific conditions are met.
 
@@ -18,4 +19,4 @@ require(), assert(), revert().
 
 # DEPLOYMENT AND COMPILATION :
 We compiled the following contract using the Remix ide environment because of its ease of working and compilation .
-The contract here checks whether the owner of the contract is the sender or not .In other words we can say that the one who has created the contract is the one who uses it. We have created a constructor and three different functions that perform the same task but using different statements. 
+The contract here has a setValue function that involves all the three statements performing simple mathematical operations such as not equal to and equal to which reverts back a message if the condition provided is not true. 
