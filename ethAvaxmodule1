@@ -1,24 +1,21 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.0;
 
-contract Ownership{
-    address public owner;
+contract ErrorHandlingExample {
+    uint256 public value;
 
-    constructor() {
-      owner = msg.sender;
-   }
+    function setValue(uint _newValue) external {
+        // Using require to check conditions and revert if the condition is not met.
+        require(_newValue > 5, "Value must be greater than five");
 
-    function onlyOwner() public view {
-        require(msg.sender == owner, "Only the owner can call this function.");
-    }
+        // Using assert for internal errors that should not occur during normal operation.
+        assert(_newValue != 80);
 
-    function owner1() public view {
-        if(msg.sender!= owner){
-            revert("The caller is not the owner.");
+        // The contract should handle internal errors gracefully, but it is also possible to revert with a custom message.
+        if (_newValue == 700) {
+            revert("Cannot set value to 100");
         }
-    }
 
-    function owner2() public view {
-        assert(msg.sender == owner);
+        value = _newValue;
     }
 }
